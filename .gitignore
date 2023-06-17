@@ -4,16 +4,11 @@ logs
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
 /.pnp
 .pnp.js
 
 # testing
 /coverage
-
-# next.js
-/.next/
-/out/
 
 # production
 /build
@@ -68,7 +63,6 @@ jspm_packages/
 web_modules/
 
 # typescript
-/node_modules
 *.tsbuildinfo
 
 # Optional npm cache directory
