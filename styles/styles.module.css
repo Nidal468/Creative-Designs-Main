@@ -1,0 +1,287 @@
+ .main{
+	width: 100%;
+	height: 100vh; 
+	background-image: url("/images/bg.jpg");
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "SF Pro Display", sans-serif;
+}
+.hero{
+	width: 95%;
+	height: 98vh;
+	background: rgba( 255, 255, 255, 0.2 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 5px );
+	-webkit-backdrop-filter: blur( 5px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	overflow: hidden;
+	display: flex;
+}
+.sideBar{
+	width: 12%;
+	max-width: 10vh;
+	min-width: 8vh;
+	height: 100%;
+	background: var(--color1);
+	overflow: hidden;
+}
+.button{
+	width: 100%;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3vh;
+	transition: 0.3s;
+	color: #333;
+}
+.body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.nav{
+	width: 100%;
+	height: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 5%;
+}
+.nav input{
+	width: 100%;
+	min-width: 40vh;
+	max-width: 80vh;
+	height: 20%;
+	min-height: 5vh;
+	background: var(--color1);
+	border-radius: 3vh;
+	padding: 2vh 4vh;
+	outline: none;
+	font-size: 2vh;
+}
+.links{
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 2%;
+}
+.links i{
+	width: 5vh;
+	height: 5vh;
+	color: var(--color1);
+	font-size: 1.5vw;
+	transition: 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0px 1vh;
+}
+.links i:hover{
+	background-color: var(--color1);
+	border-radius: 50%;
+	color: #000;
+}
+.acc{
+	width: 6vh;
+	height: 6vh;
+	border-radius: 50%;
+	background-color: #333;
+}
+.profile{
+	width: 100%;
+	height: 20vw;
+	border-top-left-radius: 1vw;
+	border-top-right-radius: 1vw;
+	background: var(--color1);
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+.profile:hover .circle{
+	transform: translateY(-8vh);
+	background: url("/images/seele nyx logo.jpg");
+	background-size: cover;
+	transition: 0.5s;
+}
+.circle{
+	width: 10vw;
+	height: 10vw;
+	border-radius: 1vw;
+	background: url("/images/seele blue.jpg");
+	box-shadow:  var(--shadow1);
+	background-size: cover;
+	background-position: 50% 50%;
+	transition: 0.5s;
+	
+}
+.profile button{
+	width: 42%;
+	height: 60%;
+	background-color: var(--color1);
+	box-shadow:  7px 7px 20px #d9d9d9,
+             -7px -7px 20px #e7e7e7;
+	border-radius: 10vh;
+	transition: 0.5s;
+	font-size: 1vw;
+}
+.profile button:hover{
+	background-color: #191919;
+	color: #fff;
+}
+.history{
+	width: 100%;
+	height: 50%;
+	background-color: var(--color1);
+	display: none;
+}
+.history img{
+	width: 100%;
+	height: 40%;
+	object-fit: cover;
+}
+.history div{
+	width: 100%;
+	height: 60%;
+	padding: 1vw;
+	font-size: 0.9rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.card {
+	width: 100%;
+	height: 50%;
+	box-shadow: 7px 5px 10px rgba(0, 0, 0, 0.333);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+  }
+  
+  .imge {
+	width: 100%;
+	height: 9vh;
+	background-color: var(--color1);
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 10px;
+  }
+  .imge span{
+	width: 60%;
+	height: 2.5vh;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-left: 5px;
+  }
+  .imge img{
+	background-color: var(--color3);
+	width: 7vh;
+	height: 7vh;
+	border-radius: 50%;
+	border: 1px solid #333;
+	object-fit: cover;
+  }
+  
+  .imge p{
+	width: 100%;
+	color: var(--color2);
+	font-size: 0.8vw;
+  }
+  .Description{
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+  }
+  .image{
+	width: 100%;
+	height: 100.3%;
+	background: rgba( 255, 255, 255, 0.2 );
+	backdrop-filter: blur( 20px );
+	-webkit-backdrop-filter: blur( 20px );
+	transition: 0.2s;
+  }
+  .card:hover .image{
+	backdrop-filter: blur( 0px );
+	-webkit-backdrop-filter: blur( 0px );
+  }
+  /*______Social Media______*/
+  .socialmedia{
+	display: flex;
+	width: 100%;
+	height: 7vh;
+	background: var(--color1);
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 5%;
+  }
+.icons{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.icons i{
+	color: inherit;
+	color: var(--color2);
+	font-size: 1vw;
+	transition: 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.icons i:hover{
+	color: orange;
+}
+.slides{
+	width: 30%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.slides i{
+	width: 3vh;
+	height: 3vh;
+	background-color: #888;
+	font-size: 3vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: #333;
+	transition: 0.5s;
+}
+.slides i:hover{
+	color: #fff;
+}
+.github{
+	width: 100%;
+	height: 40%;
+	background-color: var(--color2);
+	border-radius: 1vw;
+}
+@media only screen and (max-width: 912px){
+	.links{
+		display: none;
+	}
+	#sign{
+		display: none;
+	}
+}
