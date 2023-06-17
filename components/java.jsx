@@ -41,7 +41,7 @@ export function Google(){
   }
   return(
 	<div className={styles.player}>
-								<div className={styles.account} onClick={() => signIn('google')}></div>
+								<div className={styles.account} onClick={() => signIn('google')}>sign in</div>
 							</div>
   )
 }
