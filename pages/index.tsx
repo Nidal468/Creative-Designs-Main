@@ -5,7 +5,9 @@ import {Nav} from '../components/java.jsx'
 import styles from "../styles/styles.module.css"
 import news from "../public/json/news.json"
 import {useState, useEffect} from "react"
+import { useSession } from 'next-auth/react';
 const Home: NextPage = () => {
+	const { data: session, status } = useSession();
 	interface NewsItem {
 		src: string;
   		id: string;
@@ -101,7 +103,9 @@ const Home: NextPage = () => {
 							<div className="w-[40%] h-full flex items-end">
 								<div className={styles.github}></div>
 							</div>
+							{session ? (
 							<Profile news={news} json={isNews} button1={NewsL} button2={NewsR}/>
+							): null}
 						</div>
 					</div>
 				</div>
