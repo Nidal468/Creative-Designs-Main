@@ -3,14 +3,6 @@ import { useState } from 'react'
 import styles from '../styles/styles.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 
-const mockSession = {
-	user: {
-	  name: 'John Doe',
-	  email: 'john.doe@example.com',
-	  // Add any other required user properties
-	},
-  };
-
 export function Nav() {
 	return(
 		<nav className={styles.nav}>
@@ -26,11 +18,7 @@ export function Nav() {
 	)
 }
 export function Google(){
-	const [session, loading] = React.useState(mockSession);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	const { data: session } = useSession();
 
   if (!session) {
     return (
@@ -41,7 +29,7 @@ export function Google(){
   }
   return(
 	<div className={styles.player}>
-								<div className={styles.account} onClick={() => signIn('google')}>sign in</div>
+								<div className={styles.account} onClick={() => signOut()}>sign out</div>
 							</div>
   )
 }
