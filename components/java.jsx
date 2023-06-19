@@ -22,14 +22,14 @@ export function Google(){
 
   if (!session) {
     return (
-      <div>
-        <button onClick={() => signIn('google')}>Sign in with Google</button>
+      <div className={styles.Sign}>
+        <button onClick={() => signIn('google')}>Sign In</button>
       </div>
     );
   }
   return(
-	<div className={styles.player}>
-								<div className={styles.account} onClick={() => signOut()}>sign out</div>
-							</div>
+	<div className={styles.gIcon}>
+		<button onClick={() => signOut()}><img src="/images/seele logo.jpg"/></button>
+	</div>
   )
 }
