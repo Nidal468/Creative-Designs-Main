@@ -28,8 +28,8 @@ export function Google(){
     );
   }
   return(
-	<div className={styles.gIcon}>
-		<button onClick={() => signOut()}><img src="/images/seele logo.jpg"/></button>
-	</div>
+	<div className={styles.Sign}>
+        <button onClick={() => signOut('google')}>Sign Out</button>
+      </div>
   )
 }
