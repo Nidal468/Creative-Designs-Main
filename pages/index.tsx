@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 	const shadow2 = isColor2? "":" 0px -6px 10px #e0e0e0,  0px 6px 10px #e0e0e0";
 	const shadow3 = isColor3? "":" 0px -6px 10px #e0e0e0,  0px 6px 10px #e0e0e0";
 	const [count, setCount] = useState<number>(0);
-	useEffect(() => {
+		useEffect(() => {
 		const fetchJsonData = async () => {
 			try {
 			  const response = await fetch("/json/news.json");
@@ -47,8 +47,13 @@ const Home: NextPage = () => {
 		
 		  fetchJsonData();
 		}, []);
+		useEffect(() => {
+			if (session?.user) {
+			  const { name, image } = session.user;
+			}
+		  }, [session]);
+		  
 	function NewsR(){
-		console.log(count)
 		if (isNews < count-1) {
 			setIsNews(prev => prev + 1);
 			console.log(isNews);
@@ -93,9 +98,18 @@ const Home: NextPage = () => {
 			<main className={styles.main}>
 				<div className={styles.hero}>
 					<div className={styles.sideBar}>
+						<div className={styles.buttons}>
 						<div className={styles.button} style={{background: bg1, boxShadow: shadow1}} onClick={Button1}><i className="fi fi-rr-home" id={styles.icon}></i></div>
 						<div className={styles.button} style={{background: bg2, boxShadow: shadow2}} onClick={Button2}><i className="fi fi-rr-apps-add" id={styles.icon}></i></div>
 						<div className={styles.button} style={{background: bg3, boxShadow: shadow3}} onClick={Button3}><i className="fi fi-rr-shopping-cart-add" id={styles.icon}></i></div>
+						</div>
+						<div className={styles.user}>
+						{session?.user ? (
+							<img id={styles.iconP} src={session.user.image?? ''} alt={session.user.name?? ''}/>
+						): (
+							<img id={styles.iconP} src='/images/seele nyx logo.jpg'/>
+						)}
+						</div>
 					</div>
 					<div className={styles.body}>
 						<Nav/>

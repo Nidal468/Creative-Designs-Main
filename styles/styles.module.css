@@ -27,6 +27,17 @@
 	height: 100%;
 	background: var(--color1);
 	overflow: hidden;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.buttons{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
 }
 .button{
 	width: 100%;
@@ -284,18 +295,6 @@
 	align-items: center;
 	justify-content: flex-start;
 }
-.gIcon button{
-	width: 3vw;
-	height: 3vw;
-	border-radius: 50%;
-	background-color: #129;
-}
-.gIcon button img{
-	width: 100%;
-	height: 100%;
-	border-radius: inherit;
-	object-fit: cover;
-}
 .Sign{
 	width: 6vw;
 	height: 1.5vw;
@@ -310,6 +309,23 @@
 .Sign:hover{
 	background-color: var(--color3);
 	color: var(--color1);
+}
+.user{
+	width: 100%;
+	height: 40%;
+	background-color: var(--color3);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 0.5vw;
+}
+#iconP{
+	width: 3vw;
+	height: 3vw;
+	background-color: #999;
+	border-radius: 50%;
+	object-fit: cover;
 }
 @media only screen and (max-width: 912px){
 	.links{
