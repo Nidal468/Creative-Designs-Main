@@ -67,7 +67,7 @@ const Home: NextPage = () => {
 			.catch((error) => console.log(error));
 		},[])
 	function fetchCommits() {
-		return axios.get<Commit[]>('https://api.github.com/repos/Nidal468/Creative-Designs-1.0/commits');
+		return axios.get<Commit[]>('https://api.github.com/repos/Nidal468/Creative-Designs-Main/tree/master/commits');
 	}
 	function NewsR(){
 		if (isNews < count-1) {
