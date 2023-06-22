@@ -63,7 +63,7 @@ const Home: NextPage = () => {
 		  }, [session]);
 		useEffect(() => {
 			fetchCommits()
-			.then((response) => setCommits(response.data.slice(0,5)))
+			.then((response) => setCommits(response.data))
 			.catch((error) => console.log(error));
 		},[])
 	function fetchCommits() {
