@@ -6,12 +6,20 @@ import styles from "../styles/styles.module.css"
 import news from "../public/json/news.json"
 import {useState, useEffect} from "react"
 import { useSession } from 'next-auth/react';
+import axios from 'axios';
 const Home: NextPage = () => {
 	const { data: session, status } = useSession();
 	interface NewsItem {
 		src: string;
   		id: string;
 	}
+	interface Commit {
+		sha: string;
+		commit: {
+		  message: string;
+		};
+	  }
+	const [commits, setCommits] = useState<Commit[]>([]);
 	const [isBackground1, setIsBackground1] = useState(false);
 	const [isBackground2, setIsBackground2] = useState(true);
 	const [isBackground3, setIsBackground3] = useState(true);
@@ -19,6 +27,7 @@ const Home: NextPage = () => {
 	const [isColor2, setIsColor2] = useState(true);
 	const [isColor3, setIsColor3] = useState(true);
 	const [isNews, setIsNews] = useState(0);
+	const [isMove, setIsMove] = useState(false);
 	const bg1 = isBackground1? "": "#fff";
 	const bg2 = isBackground2? "": "#fff";
 	const bg3 = isBackground3? "": "#fff";
@@ -52,7 +61,14 @@ const Home: NextPage = () => {
 			  const { name, image } = session.user;
 			}
 		  }, [session]);
-		  
+		useEffect(() => {
+			fetchCommits()
+			.then((response) => setCommits(response.data.slice(0,5)))
+			.catch((error) => console.log(error));
+		},[])
+	function fetchCommits() {
+		return axios.get<Commit[]>('https://api.github.com/repos/Nidal468/Creative-Designs-1.0/commits');
+	}
 	function NewsR(){
 		if (isNews < count-1) {
 			setIsNews(prev => prev + 1);
@@ -114,8 +130,23 @@ const Home: NextPage = () => {
 					<div className={styles.body}>
 						<Nav/>
 						<div className="w-full h-[90%] flex items-start justify-between px-[2%] py-[1%]">
-							<div className="w-[40%] h-full flex items-end">
-								<div className={styles.github}></div>
+							<div className="w-[50%] h-full flex items-end">
+								<div className={styles.hub}>
+									<div className={styles.github}>
+										<nav><span><div className='w-[1vw] h-[1vw] rounded-[50%] bg-green-500'></div><div className='w-[1vw] h-[1vw] rounded-[50%] bg-yellow-500'></div><div className='w-[1vw] h-[1vw] rounded-[50%] bg-red-500'></div></span><input type="text" placeholder='Your repo name'/><ul className='flex items-center justify-between w-[20%] h-full'><li><button><i className='fi fi-brands-github'></i></button></li><li><button><i className='fi fi-brands-github'></i></button></li><li><button><i className='fi fi-brands-github'></i></button></li><li><button><i className='fi fi-brands-github'></i></button></li></ul></nav>
+										<div className={styles.commits} style={{height: isMove? "60%": "1.5vw"}}>
+											<h2>Commits<i className="fi fi-rr-caret-down" onClick={() => setIsMove(current =>! current)} style={{transform: isMove? "rotate(180deg)":""}}></i></h2>
+											<div className={styles.overflow} style={{display: isMove? "flex":"none"}}>
+								{Array.isArray(commits) ? (
+          commits.map((commit) => (
+			
+            <h1 key={commit.sha}>{commit.commit.message}</h1>
+          ))
+        ) : null}
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 							{session ? (
 							<Profile news={news} json={isNews} button1={NewsL} button2={NewsR}/>
